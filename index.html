@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Manager | Track Your Expenses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-wallet"></i> Money Manager</h1>
+            <p>Track your income and expenses</p>
+        </header>
+
+        <div class="balance-container">
+            <h3>Current Balance</h3>
+            <div class="balance-amount" id="balance">₹0.00</div>
+        </div>
+
+        <div class="summary-container">
+            <div class="summary-box income">
+                <h4>Income</h4>
+                <div class="amount" id="income">₹0.00</div>
+            </div>
+            <div class="summary-box expense">
+                <h4>Expenses</h4>
+                <div class="amount" id="expense">₹0.00</div>
+            </div>
+        </div>
+
+        <div class="transaction-form">
+            <h3>Add New Transaction</h3>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" placeholder="e.g. Salary, Groceries..." required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount (₹)</label>
+                    <input type="number" id="amount" placeholder="Enter amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <div class="type-toggle">
+                        <button type="button" class="income-btn active" data-type="income">
+                            <i class="fas fa-rupee-sign"></i> Income
+                        </button>
+                        <button type="button" class="expense-btn" data-type="expense">
+                            <i class="fas fa-shopping-bag"></i> Expense
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option value="salary">Salary</option>
+                        <option value="food">Food & Dining</option>
+                        <option value="transport">Transport</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="bills">Bills & Utilities</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-plus-circle"></i> Add Transaction
+                </button>
+            </form>
+        </div>
+
+        <div class="transactions-container">
+            <h3>Transaction History</h3>
+            <div class="transaction-list" id="transaction-list">
+                <!-- Transactions will be added here dynamically -->
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h3>Expense Breakdown</h3>
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
